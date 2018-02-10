@@ -9,7 +9,7 @@
     "clean": "rimraf ./dist",
     "build": "tsc -d",
     "start": "node dist/index.js",
-    "reset": "rimraf node_modules dist && yarn install && yarn test",
+    "reset": "rimraf node_modules dist && npm install && npm test",
   },
   "repository": {
     "type": "git",
