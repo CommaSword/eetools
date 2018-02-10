@@ -1,4 +1,4 @@
-# empty-epsilon-tools
+# eetools
 a console for managing a running [Empty Epsilon](http://daid.github.io/EmptyEpsilon/) game / server
 early WIP
 contributions (feedback, code, tests, issues) are welcomed!
@@ -6,10 +6,10 @@ contributions (feedback, code, tests, issues) are welcomed!
 
 ## how to install 
  - make sure you have [node.js](https://nodejs.org/) installed, version 8 and above.
- - in the command prompt, run `npm i -g empty-epsilon-tools` (requires an internet connection)
+ - in the command prompt, run `npm i -g eetools` (requires an internet connection)
     - after a few seconds, the installation is done and a message will appear:
 ```commandline
-+ empty-epsilon-tools@x.y.z
++ eetools@x.y.z
 updated 1 package in 8.69s
 ```
 (the latest version is now installed in your machine)
@@ -61,11 +61,11 @@ you will notice that the hull of the first ship is now 123456 out of 250 total. 
 ## how to set up a local development environment
 
  - download code from github
-   - either `git clone git@github.com:CommaSword/empty-epsilon-tools.git`
-   - or download [zip file](https://github.com/CommaSword/empty-epsilon-tools/archive/master.zip) and extract files to folder `nili`
- - inside folder `empty-epsilon-tools` run `npm install` from the comand line
- - inside folder `empty-epsilon-tools` run `npm build` from the comand line
- - inside folder `empty-epsilon-tools` run `npm start` from the comand line to run the tools locally. 
+   - either `git clone git@github.com:CommaSword/eetools.git`
+   - or download [zip file](https://github.com/CommaSword/eetools/archive/master.zip) and extract files to folder `nili`
+ - inside folder `eetools` run `npm install` from the comand line
+ - inside folder `eetools` run `npm build` from the comand line
+ - inside folder `eetools` run `npm start` from the comand line to run the tools locally. 
    - use `--` to add parameters to `npm start` like so: 
 ```commandline
 my-machine$ npm start -- localhost 8081
