@@ -35,6 +35,9 @@ eetools:localhost:8081$
 ```
 type `help` to get a list of current capabilities, `exit` to exit.
 
+## start
+launch the empty epsilon game application with httpserver=8081
+
 ## lua mode
 Lua mode allows you access to the running game's scripts API (the same capabilities as when writing a scenarios).
 warning - if you don't know how to read and write scripts, you would probably have a hard time getting value out of this mode.

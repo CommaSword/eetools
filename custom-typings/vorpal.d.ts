@@ -20,6 +20,13 @@ declare module "vorpal" {
         ui: Vorpal.UiInstance;
 
         /**
+         * Set id for local storage
+         * @param id
+         * @return {this}
+         * @api public
+         */
+        localStorage: ((id: string)=> this) & Storage;
+        /**
          * Parses the process's `process.argv` arguments and executes the matching command.
          *
          * @param {(string|string[])} argv
@@ -145,13 +152,6 @@ declare module "vorpal" {
          */
         history(id: string): this;
 
-        /**
-         * Set id for local storage
-         * @param id
-         * @return {this}
-         * @api public
-         */
-        localStorage(id: string): this;
 
         /**
          * Set the path to where command line history is persisted.
