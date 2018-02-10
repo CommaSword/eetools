@@ -17,7 +17,7 @@ updated 1 package in 8.69s
 (the latest version is now installed in your machine)
 
 
-#how to use
+# how to use
 
 ## running the tools
 start an empty epsilon server with `httpserver` option turned on (warning - this is an experimental feature). for example:
