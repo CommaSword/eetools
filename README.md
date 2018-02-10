@@ -66,7 +66,7 @@ you will notice that the hull of the first ship is now 123456 out of 250 total. 
    - either `git clone git@github.com:CommaSword/eetools.git`
    - or download [zip file](https://github.com/CommaSword/eetools/archive/master.zip) and extract files to folder `nili`
  - inside folder `eetools` run `npm install` from the comand line
- - inside folder `eetools` run `npm build` from the comand line
+ - inside folder `eetools` run `npm run build` from the comand line
  - inside folder `eetools` run `npm start` from the comand line to run the tools locally. 
    - use `--` to add parameters to `npm start` like so: 
 ```commandline
