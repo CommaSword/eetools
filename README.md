@@ -11,8 +11,9 @@ contributions (feedback, code, tests, issues) are welcomed!
  - in the command prompt, run `npm i -g eetools` (requires an internet connection)
     - after a few seconds, the installation is done and a message will appear:
 ```commandline
+my-machine$ npm i -g eetools
 + eetools@x.y.z
-updated 1 package in 8.69s
+added 105 packages in 8.008s
 ```
 (the latest version is now installed in your machine)
 
