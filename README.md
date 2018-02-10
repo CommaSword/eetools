@@ -1,6 +1,8 @@
 # eetools
 a console for managing a running [Empty Epsilon](http://daid.github.io/EmptyEpsilon/) game / server
+
 early WIP
+
 contributions (feedback, code, tests, issues) are welcomed!
 
 
