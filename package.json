@@ -1,33 +1,41 @@
 {
-  "name": "empty-epsilon-console",
-  "version": "1.0.0",
+  "name": "empty-epsilon-tools",
+  "version": "0.0.0",
   "description": "a console for empty epsilon",
-  "main": "dist/src/index.js",
+  "bin": {
+    "eetools": "./dist/index.js"
+  },
   "scripts": {
     "clean": "rimraf ./dist",
     "build": "tsc -d",
-    "_pretest": "npm run clean && npm run build",
+    "start": "node dist/index.js",
     "reset": "rimraf node_modules dist && yarn install && yarn test",
-    "_test": "mocha --require test-setup.js --reporter list \"dist/test/**/*.spec.js\""
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/CommaSword/empty-epsilon-console.git"
+    "url": "git+https://github.com/CommaSword/empty-epsilon-tools.git"
   },
   "author": "Amir Arad <greenshade@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/CommaSword/empty-epsilon-console/issues"
+    "url": "https://github.com/CommaSword/empty-epsilon-tools/issues"
   },
   "dependencies": {
+    "chalk": "^2.3.0",
     "empty-epsilon-js": "1.0.2",
+    "json-stringify-safe": "^5.0.1",
+    "lodash": "^4.17.5",
+    "luaparse": "^0.2.1",
     "tslib": "^1.9.0",
-    "vorpal": "1.12.0"
+    "vorpal": "1.12.0",
+    "yargs": "^11.0.0"
   },
-  "homepage": "https://github.com/CommaSword/empty-epsilon-console#readme",
+  "homepage": "https://github.com/CommaSword/empty-epsilon-tools#readme",
   "devDependencies": {
-    "@types/inquirer": "^0.0.36",
-    "@types/minimist": "^1.2.0",
+    "@types/chalk": "^2.2.0",
+    "@types/json-stringify-safe": "^5.0.0",
+    "@types/lodash": "^4.14.102",
+    "@types/yargs": "^10.0.1",
     "ts-node": "^4.1.0",
     "typescript": "^2.7.1"
   }

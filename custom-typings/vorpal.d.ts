@@ -16,7 +16,7 @@ declare module "vorpal" {
 // chalk : Chalk;
 //        cmdHistory: {};
         commands: Array<Vorpal.Command>;
-        session : Vorpal.Session;
+        session: Vorpal.Session;
         ui: Vorpal.UiInstance;
 
         /**
@@ -57,7 +57,7 @@ declare module "vorpal" {
          * @return {Vorpal}
          * @api public
          */
-        use<T>(commands: (this: this, vorpal: this, options?: T) => any, options?: T): this;
+        use(commands: (this: this, vorpal: this, options?: any) => any, options?: any): this;
 
         use(commandsPath: string, options: any): this;
 
@@ -223,9 +223,9 @@ declare module "vorpal" {
          * @return {Promise or Vorpal}
          * @api public
          */
-        exec<T>(command: string, args: { [k: string]: any, sessionId?: string }, cb?: Vorpal.CallbackFunction<T>): PromiseLike<T>;
+        exec(command: string, args: { [k: string]: any, sessionId?: string }, cb?: Vorpal.CallbackFunction): PromiseLike<any>;
 
-        exec<T>(command: string, cb?: Vorpal.CallbackFunction<T>): PromiseLike<T>;
+        exec(command: string, cb?: Vorpal.CallbackFunction): PromiseLike<any>;
 
 
         /**
@@ -236,7 +236,7 @@ declare module "vorpal" {
          * @return {*} stdout
          * @api public
          */
-        execSync<T>(command: string, options: { [k: string]: any, sessionId?: string }): T;
+        execSync(command: string, options: { [k: string]: any, sessionId?: string }): any;
 
         /**
          * Registers a custom handler for SIGINT.
@@ -283,7 +283,7 @@ declare module "vorpal" {
      */
     namespace Vorpal {
 
-        type CallbackFunction<T> = (err?: string | Error, data?: T) => void;
+        type CallbackFunction = (err?: string | Error, data?: any) => void;
 
         interface TypesDefinition {
             string?: string[];
@@ -295,7 +295,7 @@ declare module "vorpal" {
             command: string;
             description: string;
             options: Array<string> | Array<Array<string>>;
-            action: CommandActionFn<any>;
+            action: CommandActionFn;
         }
 
         type CommandOptions = Partial<{ mode: boolean, "catch": boolean }>;
@@ -333,7 +333,7 @@ declare module "vorpal" {
 
             delimiter(str: string): this;
 
-            init(initFn: (args: any, callback: CallbackFunction<void>) => void): this;
+            init(initFn: CommandActionFn): this;
 
             alias(name: string): this;
 
@@ -360,44 +360,47 @@ declare module "vorpal" {
             autocomplete(choices: string[]): this;
 
             autocomplete(choices: {}): this; // TODO: Revisit this.
-            autocomplete<T>(choicesFn: CommandAutocompleteFn<T>): this; // TODO: Revisit this.
-            action<T>(actionFn: CommandActionFn<T>): this;
+            autocomplete(choicesFn: CommandAutocompleteFn): this; // TODO: Revisit this.
+            action(actionFn: CommandActionFn): this;
         }
 
-        export interface Args{
+        export interface Args {
             options: {
-                [name:string] : string;
+                [name: string]: string;
             },
-            [name:string] : string | object;
+
+            [name: string]: string | object;
         }
+
         export interface CommandInstance {
-            log(message?: any, ...optionalParams: any[]):void;
-            prompt:  Inquirer['prompt'];
-            delimiter:  Vorpal['delimiter'];
+            log(message?: any, ...optionalParams: any[]): void;
+
+            prompt: Inquirer['prompt'];
+            delimiter: Vorpal['delimiter'];
             args: Args;
             callback: any;
             command: any;
             commandObject: Command;
             commandWrapper: {
-                args:Args;
-                callback: CallbackFunction<any>;
-                command : string;
+                args: Args;
+                callback: CallbackFunction;
+                command: string;
                 commandObject: Command;
                 commandInstance: CommandInstance;
-                fn: CommandActionFn<any>;
-                pipes:Array<any>;
-                session:Session;
-                validate:any;
-                downstream:any;
+                fn: CommandActionFn;
+                pipes: Array<any>;
+                session: Session;
+                validate: any;
+                downstream: any;
             };
-            parent:Vorpal;
-            session:Session;
+            parent: Vorpal;
+            session: Session;
         }
 
         type CommandParseFn = (command: string, args: Args) => string;  // TODO: Check args type.
         type CommandValidateFn = (this: CommandInstance, args: Args) => boolean | string;  // TODO: Check args type.
-        type CommandAutocompleteFn<T> = (text: string, iteration: number, cb: CallbackFunction<T>) => void | PromiseLike<T>;
-        type CommandActionFn<T> = (this: CommandInstance, args: any, cb: CallbackFunction<T>) => void | PromiseLike<T>
+        type CommandAutocompleteFn = (text: string, iteration: number, cb: CallbackFunction) => void | PromiseLike<void>;
+        type CommandActionFn = (this: CommandInstance, args: any, cb: (err?: string | Error, data?: string) => void) => void | PromiseLike<string | void>
     }
 
     export = Vorpal;
