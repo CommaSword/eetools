@@ -30,7 +30,7 @@ my-machine$ eetools localhost 8081
 
 eetools:localhost:8081$ 
 ```
-type `help` to get a list of current capabilities
+type `help` to get a list of current capabilities, `exit` to exit.
 
 ## lua mode
 Lua mode allows you access to the running game's scripts API (the same capabilities as when writing a scenarios).
@@ -66,3 +66,7 @@ you will notice that the hull of the first ship is now 123456 out of 250 total. 
  - inside folder `empty-epsilon-tools` run `npm install` from the comand line
  - inside folder `empty-epsilon-tools` run `npm build` from the comand line
  - inside folder `empty-epsilon-tools` run `npm start` from the comand line to run the tools locally. 
+   - use `--` to add parameters to `npm start` like so: 
+```commandline
+my-machine$ npm start -- localhost 8081
+```
