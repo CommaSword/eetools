@@ -1,6 +1,6 @@
 {
   "name": "eetools",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "a console for empty epsilon",
   "bin": {
     "eetools": "./dist/index.js"
