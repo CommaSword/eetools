@@ -5,8 +5,10 @@
 
 /// <reference types="inquirer" />
 /// <reference types="minimist" />
+/// <reference types="log-update" />
 declare module "vorpal" {
 
+    import logUpdate = require('log-update');
     import {ParsedArgs} from 'minimist';
     import {EventEmitter} from 'events';
     import {Inquirer} from "inquirer";
@@ -307,7 +309,7 @@ declare module "vorpal" {
 
         export interface UiInstance extends EventEmitter {
 
-            redraw: RedrawMethod;
+            redraw: typeof logUpdate;
 
             delimiter(text?: string): this;
 
@@ -318,14 +320,6 @@ declare module "vorpal" {
             submit(text: string): this;
 
             cancel(): this;
-        }
-
-        export function RedrawMethod(...texts: string[]): void;
-
-        export interface RedrawMethod {
-            clear(): void;
-
-            done(): void;
         }
 
         export interface Command {

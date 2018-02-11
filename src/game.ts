@@ -17,13 +17,13 @@ const gameFileLocations = [
 ];
 const accessP = promisify(access);
 
-async function findGameExec(log: Log): Promise<string | null> {
+async function findGameExec(log: Log, ui: Vorpal['ui']): Promise<string | null> {
     log(chalk.white(`looking for game location ...`));
-
     for (let i = 0; i < gameFileLocations.length; i++) {
         let fileLocation = gameFileLocations[i];
         try {
-            log(chalk.white(`  -  ${fileLocation}`));
+            ui.redraw(chalk.white(`  -  ${fileLocation}`));
+            await new Promise(res => setTimeout(res, 1000));
             await accessP(fileLocation, constants.X_OK);
             return fileLocation;
         } catch (e) {
@@ -38,7 +38,7 @@ export function plugin(vorpal: Vorpal, {eeDriver}: { eeDriver: EEDriver }) {
         .description('launches the empty epsilon application')
         .action(async function (this: CommandInstance, args) {
             try {
-                const gameExecLocation = await findGameExec(this.log.bind(this));
+                const gameExecLocation = await findGameExec(this.log.bind(this), vorpal.ui);
                 if (gameExecLocation) {
                     this.log(chalk.white(`running ${gameExecLocation} httpserver=8081`));
                     spawn(gameExecLocation, ['httpserver=8081']);

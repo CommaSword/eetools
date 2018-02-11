@@ -37,6 +37,7 @@
     "@types/inquirer": "0.0.36",
     "@types/json-stringify-safe": "^5.0.0",
     "@types/lodash": "^4.14.102",
+    "@types/log-update": "2.0.0",
     "@types/minimist": "1.2.0",
     "@types/yargs": "^10.0.1",
     "ts-node": "^4.1.0",
